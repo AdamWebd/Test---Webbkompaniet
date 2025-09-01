@@ -1,0 +1,211 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.detaljer,
+.pronation,
+.teknik,
+.sko{
+    position: absolute;
+    opacity: 0;
+}
+
+.sektion {
+    width: 80%;
+    display: block;
+}
+
+.sektion-knapp {
+    text-decoration: none;
+    width: 100%;
+    font-size: 1.2rem;
+    background-color: #555;
+    color: #fff;
+    display: block;
+    height: 60px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.sektion-knapp span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.sektion-knapp h2 {
+    margin: 0;
+    padding: 0 5px;
+    font-weight: 100;
+}
+
+.sektion-knapp p {
+    margin: 0;
+    padding: 0;
+}
+
+.sektion-knapp .ikon {
+    transition: transform .7s ease;
+}
+
+.sektion-knapp .ikon::after {
+    content: "+";
+    color: #fff;
+    font-size: 30px;
+    padding: 0 8px 4px;
+    transition: opacity .7s ease;
+}
+
+.detaljer:checked+.sektion-knapp .ikon::after,
+.pronation:checked+.sektion-knapp .ikon::after,
+.teknik:checked+.sektion-knapp .ikon::after,
+.sko:checked+.sektion-knapp .ikon::after {
+    content: "-";
+    padding: 5px 13px 0;
+}
+
+.detaljer:checked+.sektion-knapp .ikon,
+.pronation:checked+.sektion-knapp .ikon,
+.teknik:checked+.sektion-knapp .ikon,
+.sko:checked+.sektion-knapp .ikon {
+    transform: rotate(360deg);
+}
+
+.behållare {
+    display: flex;
+    flex-wrap: nowrap;
+    max-height: 0;
+    opacity: 0;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height .7s ease, opacity .5s ease;
+}
+
+.detaljer:checked~.behållare,
+.pronation:checked~.behållare,
+.teknik:checked~.behållare,
+.sko:checked~.bild  {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.block1 {
+    margin: 10px auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.fråga {
+    width: 100%;
+}
+
+.fråga h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px auto;
+}
+
+.svar {
+    width: 100%;
+}
+
+.svar p {
+    font-size: 17px;
+    margin: 5px auto;
+}
+
+.mätare {
+    display: flex;
+    height: 10px;
+    width: 90%;
+    background-color: #999;
+    border-radius: 20px;
+}
+
+.mätare span {
+    background-color: green;
+    border-radius: 20px;
+    width: 0;
+    display: block;
+}
+
+.block2 {
+    margin: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.beskrivning {
+    width: 100%;
+    margin: 0;
+    font-size: 17px;
+}
+
+.beskrivning h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.beskrivning p {
+    margin: 0;
+    width: 100%;
+}
+
+.bild {
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .7s ease, opacity .5s ease;
+}
+
+.bild img {
+    display: block;
+    width: 50vw;
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 5px auto;
+}
+
+@media screen and (max-width: 768px) {
+    .behållare {
+        flex-direction: column;
+    }
+
+    .block1,
+    .block2 {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .fråga h3, 
+    .svar p,
+    .beskrivning h3 {
+        margin: 10px 25px 10px 0;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
