@@ -8,6 +8,7 @@ body {
 
 main {
     width: 100vw;
+    margin-top: 50px ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,19 +26,22 @@ main {
 
 .sektion {
     width: 80%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .sektion-knapp {
+    border-radius: 20px;
     text-decoration: none;
     width: 100%;
-    font-size: 1.2rem;
-    background-color: #555;
-    color: #fff;
+    font-size: 1.1rem;
+    background-color: #111;
+    color: rgb(146, 37, 144);
     display: block;
     height: 60px;
     cursor: pointer;
-    border: 1px solid #fff;
+    box-shadow: 0 0 5px rgb(146, 37, 144);
 }
 
 .sektion-knapp span {
@@ -46,12 +50,22 @@ main {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    margin: auto 10px;
+}
+
+.sektion-knapp:hover {
+    transition: .4s all ease;
+    box-shadow: 0 0 10px rgb(255, 90, 252);
+}
+
+.sektion-knapp span:hover {
+    color: rgb(255, 90, 252);
 }
 
 .sektion-knapp h2 {
     margin: 0;
     padding: 0 5px;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 .sektion-knapp p {
@@ -65,7 +79,6 @@ main {
 
 .sektion-knapp .ikon::after {
     content: "+";
-    color: #fff;
     font-size: 30px;
     padding: 0 8px 4px;
     transition: opacity .7s ease;
@@ -86,12 +99,22 @@ main {
     transform: rotate(360deg);
 }
 
+.detaljer:checked + .sektion-knapp,
+.pronation:checked + .sektion-knapp,
+.teknik:checked + .sektion-knapp,
+.sko:checked + .sektion-knapp {
+    box-shadow: 0 0 10px rgb(255, 90, 252);
+    transition: .4s all ease;
+    color: rgb(255, 90, 252);
+}
+
 .behållare {
     display: flex;
-    flex-wrap: nowrap;
     max-height: 0;
     opacity: 0;
-    width: 100%;
+    width: 80%;
+    margin: 10px auto;
+    justify-content: center;
     overflow: hidden;
     pointer-events: none;
     transition: max-height .7s ease, opacity .5s ease;
@@ -171,6 +194,10 @@ main {
     width: 100%;
 }
 
+.sektion:last-of-type .behållare{
+    width: 60%;
+}
+
 .behållare img {
     display: block;
     width: 50vw;
@@ -178,6 +205,27 @@ main {
     height: auto;
     padding: 10px;
     margin: 5px auto;
+}
+
+.bild-behållare {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.bild-behållare h5 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.bild-behållare h6 {
+    font-size: 1rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+.bild-text {
 }
 
 @media screen and (max-width: 768px) {
