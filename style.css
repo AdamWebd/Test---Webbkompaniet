@@ -100,7 +100,7 @@ main {
 .detaljer:checked~.behållare,
 .pronation:checked~.behållare,
 .teknik:checked~.behållare,
-.sko:checked~.bild  {
+.sko:checked~.behållare  {
     max-height: 1000px;
     opacity: 1;
 }
