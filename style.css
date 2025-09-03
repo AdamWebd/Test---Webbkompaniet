@@ -8,18 +8,17 @@ body {
 
 main {
     width: 100vw;
-    margin-top: 50px ;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-content: center;
 }
 
 .detaljer,
 .pronation,
 .teknik,
-.sko{
+.sko {
     position: absolute;
     opacity: 0;
 }
@@ -28,7 +27,7 @@ main {
     width: 80%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .sektion-knapp {
@@ -42,11 +41,11 @@ main {
     height: 60px;
     cursor: pointer;
     box-shadow: 0 0 5px rgb(146, 37, 144);
+    transition: box-shadow .4s ease, color .4s ease;
 }
 
 .sektion-knapp span {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -54,7 +53,6 @@ main {
 }
 
 .sektion-knapp:hover {
-    transition: .4s all ease;
     box-shadow: 0 0 10px rgb(255, 90, 252);
 }
 
@@ -68,11 +66,6 @@ main {
     font-weight: 400;
 }
 
-.sektion-knapp p {
-    margin: 0;
-    padding: 0;
-}
-
 .sektion-knapp .ikon {
     transition: transform .7s ease;
 }
@@ -81,7 +74,6 @@ main {
     content: "+";
     font-size: 30px;
     padding: 0 8px 4px;
-    transition: opacity .7s ease;
 }
 
 .detaljer:checked+.sektion-knapp .ikon::after,
@@ -99,59 +91,88 @@ main {
     transform: rotate(360deg);
 }
 
-.detaljer:checked + .sektion-knapp,
-.pronation:checked + .sektion-knapp,
-.teknik:checked + .sektion-knapp,
-.sko:checked + .sektion-knapp {
+.detaljer:checked+.sektion-knapp,
+.pronation:checked+.sektion-knapp,
+.teknik:checked+.sektion-knapp,
+.sko:checked+.sektion-knapp {
     box-shadow: 0 0 10px rgb(255, 90, 252);
-    transition: .4s all ease;
     color: rgb(255, 90, 252);
 }
 
-.behållare {
-    display: flex;
+.behållare1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     max-height: 0;
     opacity: 0;
-    width: 80%;
-    margin: 10px auto;
-    justify-content: center;
     overflow: hidden;
     pointer-events: none;
-    transition: max-height .7s ease, opacity .5s ease;
+    transition: max-height .6s ease, opacity .5s ease;
+    width: 80%;
+    margin: 10px auto 0;
+    justify-content: center;
 }
 
-.detaljer:checked~.behållare,
-.pronation:checked~.behållare,
-.teknik:checked~.behållare,
-.sko:checked~.behållare  {
-    max-height: 1000px;
+.behållare2,
+.behållare3 {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height .6s ease, opacity .5s ease;
+    width: 80%;
+    margin: 10px auto 0;
+    justify-content: center;
+}
+
+.detaljer:checked~.behållare1 {
+    max-height: 236px;
     opacity: 1;
+    pointer-events: auto;
+}
+
+.pronation:checked~.behållare2 {
+    max-height: 125px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.teknik:checked~.behållare3 {
+    max-height: 420px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sko:checked~.behållare4 {
+    max-height: 772px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.fråga h3,
+.svar p,
+.beskrivning h3,
+.beskrivning p {
+    margin: 5px 10px 5px 0;
+    font-size: 17px;
 }
 
 .block1 {
-    margin: 10px auto;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    align-items: center;
 }
 
-.fråga {
+.block2 {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
 }
 
-.fråga h3 {
-    font-size: 17px;
-    font-weight: bold;
-    margin: 5px auto;
-}
-
-.svar {
-    width: 100%;
-}
-
+.fråga h3,
 .svar p {
-    font-size: 17px;
-    margin: 5px auto;
+    margin: 20px auto 20px;
 }
 
 .mätare {
@@ -165,72 +186,60 @@ main {
 .mätare span {
     background-color: green;
     border-radius: 20px;
-    width: 0;
     display: block;
 }
 
-.block2 {
-    margin: 10px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-}
-
-.beskrivning {
-    width: 100%;
-    margin: 0;
-    font-size: 17px;
-}
-
-.beskrivning h3 {
-    margin: 0;
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.beskrivning p {
-    margin: 0;
-    width: 100%;
-}
-
-.sektion:last-of-type .behållare{
-    width: 60%;
-}
-
-.behållare img {
-    display: block;
-    width: 50vw;
-    max-width: 100%;
-    height: auto;
-    padding: 10px;
-    margin: 5px auto;
+.behållare4 {
+    margin: 20px auto;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height .6s ease, opacity .5s ease;
+    display: flex;
+    justify-content: center;
 }
 
 .bild-behållare {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    width: 80%;
+    max-width: 700px;
+    gap: 10px;
+}
+
+.bild-behållare img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .bild-behållare h5 {
+    width: 100%;
+    margin: 5px auto;
     font-size: 1.3rem;
-    margin-bottom: 10px;
 }
 
 .bild-behållare h6 {
     font-size: 1rem;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    width: 100%;
+    margin: 5px auto;
+}
+
+.bild-behållare p {
+    width: 100%;
+    margin: 5px auto;
 }
 
 
-.bild-text {
+.spacer {
+    height: 600px;
 }
 
 @media screen and (max-width: 768px) {
-    .behållare {
-        flex-direction: column;
+
+    .behållare1 {
+        grid-template-columns: 1fr;
     }
 
     .block1,
@@ -239,7 +248,7 @@ main {
         margin: 10px auto;
     }
 
-    .fråga h3, 
+    .fråga h3,
     .svar p,
     .beskrivning h3 {
         margin: 10px 25px 10px 0;
@@ -248,4 +257,21 @@ main {
     h2 {
         font-size: 1.3rem;
     }
+
+    .detaljer:checked~.behållare1 {
+        max-height: 420px;
+    }
+
+    .pronation:checked~.behållare2 {
+        max-height: 320px;
+    }
+
+    .teknik:checked~.behållare3 {
+        max-height: 1200px;
+    }
+
+    .sko:checked~.behållare4 {
+        max-height: 920px;
+    }
+
 }
